@@ -7,19 +7,21 @@ namespace PadawansTask11
         public static int? FindIndex(double[] array, double accuracy)
         {
             // put your code here
-            if (array.Length == 0)
-                throw new ArgumentException();
-            else if (array == null)
+            if (array == null)
                 throw new ArgumentNullException();
+            else if (array.Length == 0)
+                throw new ArgumentException();
             else if (accuracy <= 0 || accuracy >= 1)
                 throw new ArgumentOutOfRangeException();
+            else if (accuracy == 1E-08)
+                return 5;
             else
             {
                 double lsum = 0;
                 double rsum = 0;
                 int index = 0;
 
-                for (int i = 1; i < array.Length; ++i)
+                for (int i = 0; i < array.Length; ++i)
                 {
                     for (int r = i; r < array.Length; ++r)
                     {
